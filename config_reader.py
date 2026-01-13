@@ -1,12 +1,18 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import SecretStr
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-class Settings(BaseSettings):
-    telegram_bot_token: SecretStr
-    weather_token: SecretStr
+class Config:
+    TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+    WEATHER_TOKEN = os.getenv("WEATHER_TOKEN")
 
-    model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8')
+    @classmethod
+    def validate(cls):
+        if not cls.TELEGRAM_BOT_TOKEN:
+            raise ValueError("BOT_TOKEN не установлен!")
+        return cls
 
 
-config = Settings()
+config = Config.validate()

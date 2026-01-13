@@ -129,7 +129,7 @@ async def get_target_water(user_id):
 
 async def get_current_temp(user_id):
     city = CACHE[user_id]["city"]
-    token = config.weather_token.get_secret_value()
+    token = config.WEATHER_TOKEN
 
     if not city or not token:
         return
