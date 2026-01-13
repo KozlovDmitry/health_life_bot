@@ -11,6 +11,7 @@ from handlers import (
     check_progress_router,
     log_food_router,
     check_progress_graph_router,
+    health_router,
 )
 
 logging.basicConfig(level=logging.INFO)
@@ -25,6 +26,7 @@ dp.include_router(log_workout_router)
 dp.include_router(check_progress_router)
 dp.include_router(log_food_router)
 dp.include_router(check_progress_graph_router)
+dp.include_router(health_router)
 
 
 async def main():
