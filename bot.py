@@ -17,7 +17,7 @@ from handlers import (
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__package__)
 
-bot = Bot(token=config.bot_token.get_secret_value())
+bot = Bot(token=config.telegram_bot_token.get_secret_value())
 dp = Dispatcher()
 
 dp.include_router(set_profile_router)
