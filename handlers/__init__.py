@@ -1,0 +1,6 @@
+from handlers.set_profile import set_profile_router
+from handlers.check_progress import check_progress_router
+from handlers.check_progress_graph import check_progress_graph_router
+from handlers.log_food import log_food_router
+from handlers.log_water import log_water_router
+from handlers.log_workout import log_workout_router
